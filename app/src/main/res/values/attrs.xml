@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderComponent">
+        <attr name="couleurFond" format="integer"/>
+        <attr name="titre" format="string"/>
+        <attr name="icone" format="integer"/>
+        <attr name="afficherIconeLeft" format="boolean"/>
+    </declare-styleable>
+</resources>

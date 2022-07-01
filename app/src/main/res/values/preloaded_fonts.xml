@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/cinzel</item>
+        <item>@font/cinzel_bold</item>
+        <item>@font/jacques_francois</item>
+        <item>@font/oswald</item>
+        <item>@font/oxanium</item>
+        <item>@font/pavanam</item>
+    </array>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/background_bouton_gris.xml" value="0.1655" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/background_bouton_rouge.xml" value="0.1655" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/background_note_dialog.xml" value="0.1655" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/jour_arriere_plan.xml" value="0.145" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/jour_selected_arriere_plan.xml" value="0.1035" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/marked_arriere_plan.xml" value="0.104" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/marquage_marron.xml" value="0.1" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/note_arriere_plan.xml" value="0.1775" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/sang_arriere_plan.xml" value="0.104" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_bin.xml" value="0.1" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_check.xml" value="0.1655" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_date.xml" value="0.1" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_left.xml" value="0.1655" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_note.xml" value="0.1785" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_note_blanc.xml" value="0.1785" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_plus.xml" value="0.11200000000000002" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/transition_jour_arriere_plan.xml" value="0.1035" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/week_end_arriere_plan.xml" value="0.104" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/activity_detail_note.xml" value="0.264" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/activity_liste_note.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/activity_main.xml" value="0.23471400394477318" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/date_string_component_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/header_component_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/jour_component_layout.xml" value="0.536" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/note_adapter_layout.xml" value="0.264" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/note_component_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/note_dialog_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/semaine_component_layout.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

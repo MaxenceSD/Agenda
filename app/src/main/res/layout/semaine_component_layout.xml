@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.smapps.agenda.component.HeaderComponent
+        android:id="@+id/header_titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/linear_semaine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titre="Agenda"
+        app:couleurFond="@color/gris_3"
+        app:icone="@drawable/svg_date"/>
+
+    <com.smapps.agenda.component.HeaderComponent
+        android:id="@+id/header_jour_modification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/header_titre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:titre="26 Juin 2022"
+        app:couleurFond="@color/selection_color"
+        app:icone="@drawable/svg_plus"/>
+
+    <LinearLayout
+        android:id="@+id/linear_semaine"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_titre">
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/lundi"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"/>
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/mardi"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/mercredi"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/jeudi"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/vendredi"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/samedi"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.smapps.agenda.component.JourComponent
+            android:id="@+id/dimanche"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
