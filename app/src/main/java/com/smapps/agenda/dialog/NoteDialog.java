@@ -10,17 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.smapps.agenda.R;
-import com.smapps.agenda.component.HeaderComponent;
 import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.model.Note;
-import com.smapps.agenda.service.JourService;
 import com.smapps.agenda.service.NoteService;
 import com.smapps.agenda.utils.CallBack;
 
@@ -34,7 +31,7 @@ public class NoteDialog extends DialogFragment {
     private TextView valider;
 
     private Context context;
-    private CallBack callBack;
+    private CallBack<Void> callBack;
     private Jour jour;
 
     public NoteDialog(Context context, Jour jour) {
@@ -44,7 +41,7 @@ public class NoteDialog extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.note_dialog_layout, container);
+        return inflater.inflate(R.layout.dialog_note_layout, container);
     }
 
     @Override
@@ -75,7 +72,7 @@ public class NoteDialog extends DialogFragment {
             if (!TextUtils.isEmpty(strTitre)) {
                 Note note = new Note(this.jour, strTitre, strDetail);
                 this.noteService.createOrUpdateNote(note);
-                this.callBack.execute();
+                this.callBack.execute(null);
                 this.dismiss();
             } else {
                 // TODO : animation titre manquant et obligatoire
@@ -83,7 +80,7 @@ public class NoteDialog extends DialogFragment {
         });
     }
 
-    public void setCallBack(CallBack callBack) {
+    public void setCallBack(CallBack<Void> callBack) {
         this.callBack = callBack;
     }
 }

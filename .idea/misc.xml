@@ -12,6 +12,7 @@
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/marquage_marron.xml" value="0.1" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/note_arriere_plan.xml" value="0.1775" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/sang_arriere_plan.xml" value="0.104" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/selector_color_bouton_rouge.xml" value="0.1655" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_bin.xml" value="0.1" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_check.xml" value="0.1655" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/drawable/svg_date.xml" value="0.1" />
@@ -24,7 +25,10 @@
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/activity_detail_note.xml" value="0.264" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/activity_liste_note.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/activity_main.xml" value="0.23471400394477318" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/calendrier_dialog_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/calendrier_tmp_dialog_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/date_string_component_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/dialog_calendrier_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/header_component_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/jour_component_layout.xml" value="0.536" />
         <entry key="..\:/Users/mecht/Desktop/Workspace/Agenda/app/src/main/res/layout/note_adapter_layout.xml" value="0.264" />

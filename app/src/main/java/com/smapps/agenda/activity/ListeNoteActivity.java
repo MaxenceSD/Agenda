@@ -64,9 +64,9 @@ public class ListeNoteActivity extends AppCompatActivity {
         this.noteRecycler.setLayoutManager(new LinearLayoutManager(this));
         this.noteRecycler.setHasFixedSize(true);
 
-        this.boutonAjout.setOnClickListener((v) -> {
+        this.boutonAjout.setOnClickListener((view) -> {
             NoteDialog noteDialog = new NoteDialog(this, this.jour);
-            noteDialog.setCallBack(() -> {
+            noteDialog.setCallBack((v) -> {
                 this.jour.setNotes(this.noteService.getNoteByJourId(this.jour.getId()));
                 this.noteAdapter.setListeNotes((List<Note>) this.jour.getNotes());
             });

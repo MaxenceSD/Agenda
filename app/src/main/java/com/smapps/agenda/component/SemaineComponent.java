@@ -1,26 +1,17 @@
 package com.smapps.agenda.component;
 
-import android.app.appsearch.GetSchemaResponse;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.GestureDetectorCompat;
 
 import com.smapps.agenda.R;
+import com.smapps.agenda.dialog.CalendrierDialog;
 import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.service.JourService;
 import com.smapps.agenda.utils.GestureEventEnum;
@@ -36,13 +27,13 @@ import java.util.List;
 
 public class SemaineComponent extends ConstraintLayout {
 
+    private JourComponent[] semaine;
     private JourComponent selectedComponent;
-    private JourService jourService;
-
     private HeaderComponent headerTitre;
     private HeaderComponent headerModification;
+    private JourService jourService;
 
-    private JourComponent[] semaine;
+    private Date jourSelected;
 
     public SemaineComponent(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -71,15 +62,23 @@ public class SemaineComponent extends ConstraintLayout {
         this.semaine[4] = findViewById(R.id.vendredi);
         this.semaine[5] = findViewById(R.id.samedi);
         this.semaine[6] = findViewById(R.id.dimanche);
-    }
 
-    public void setSemaine(List<Jour> semaine) {
-        for (int i = 0; i < this.semaine.length; i++) {
-            this.semaine[i].setJour(semaine.get(i));
-        }
+        this.headerTitre.setOnIconeClickListenenr((v) -> {
+            CalendrierDialog calendrierDialog = new CalendrierDialog(this.jourSelected);
+            calendrierDialog.setCallBack(cal -> {
+                if (cal.getTime().before(this.jourSelected)) {
+                    setSemaineAnimationDescendante(cal.getTime());
+                } else {
+                    setSemaineAnimationAscendante(cal.getTime());
+                }
+            });
+            calendrierDialog.show(((AppCompatActivity)context).getSupportFragmentManager(), "CALENDRIER_DIALOG");
+        });
     }
 
     public void setSemaineFromDate(Date date) {
+        this.jourSelected = date;
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
@@ -108,8 +107,10 @@ public class SemaineComponent extends ConstraintLayout {
         }
     }
 
-    public void setSemaineToPrevious(Date date) {
+    public void setSemaineAnimationDescendante(Date date) {
         this.unselectAll();
+
+        this.jourSelected = date;
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -139,8 +140,10 @@ public class SemaineComponent extends ConstraintLayout {
         }
     }
 
-    public void setSemaineToNext(Date date) {
+    public void setSemaineAnimationAscendante(Date date) {
         this.unselectAll();
+
+        this.jourSelected = date;
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
