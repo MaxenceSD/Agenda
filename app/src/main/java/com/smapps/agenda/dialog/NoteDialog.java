@@ -33,10 +33,12 @@ public class NoteDialog extends DialogFragment {
     private Context context;
     private CallBack<Void> callBack;
     private Jour jour;
+    private Note note;
 
-    public NoteDialog(Context context, Jour jour) {
+    public NoteDialog(Context context, Jour jour, Note note) {
         this.context = context;
         this.jour = jour;
+        this.note = note;
     }
 
     @Override

@@ -21,20 +21,20 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private SemaineComponent semaineComponent;
     private Calendar selectedDate;
 
-    private NoteService noteService;
-    private JourService jourService;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        this.selectedDate = Calendar.getInstance();
-
         this.semaineComponent = findViewById(R.id.semaine);
-        this.semaineComponent.setSemaineFromDate(this.selectedDate.getTime());
-
+        this.selectedDate = Calendar.getInstance();
         this.mDetector = new GestureDetectorCompat(this, this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.semaineComponent.setSemaineFromDate(this.selectedDate.getTime());
+        this.semaineComponent.unselectAll();
     }
 
     @Override

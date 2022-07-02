@@ -56,7 +56,10 @@ public class CalendrierDialog extends DialogFragment {
             this.callBack.execute(cal);
         });
 
-        this.boutonAujourdhui.setOnClickListener((v) -> this.callBack.execute(Calendar.getInstance()));
+        this.boutonAujourdhui.setOnClickListener((v) -> {
+            this.callBack.execute(Calendar.getInstance());
+            dismiss();
+        });
         this.boutonTerminer.setOnClickListener((v) -> dismiss());
     }
 

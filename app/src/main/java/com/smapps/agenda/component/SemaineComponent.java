@@ -1,6 +1,7 @@
 package com.smapps.agenda.component;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.smapps.agenda.R;
+import com.smapps.agenda.activity.ListeNoteActivity;
 import com.smapps.agenda.dialog.CalendrierDialog;
 import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.service.JourService;
@@ -73,6 +75,14 @@ public class SemaineComponent extends ConstraintLayout {
                 }
             });
             calendrierDialog.show(((AppCompatActivity)context).getSupportFragmentManager(), "CALENDRIER_DIALOG");
+        });
+
+        this.headerModification.setOnIconeClickListenenr((v) -> {
+            Intent intent = new Intent(context, ListeNoteActivity.class);
+            intent.putExtra("OPEN_NOTE_DIALOG", true);
+            intent.putExtra("JOUR_DATE", this.selectedComponent.getJour().getDate());
+            intent.putExtra("JOUR_ID", this.selectedComponent.getJour().getStrId());
+            context.startActivity(intent);
         });
     }
 
@@ -201,7 +211,7 @@ public class SemaineComponent extends ConstraintLayout {
         }
     }
 
-    private void unselectAll() {
+    public void unselectAll() {
         for (JourComponent jourComponent : this.semaine) {
             jourComponent.unselect();
             this.selectedComponent = null;

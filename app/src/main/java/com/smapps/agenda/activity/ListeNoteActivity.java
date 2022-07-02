@@ -1,8 +1,6 @@
 package com.smapps.agenda.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +14,12 @@ import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.model.Note;
 import com.smapps.agenda.service.JourService;
 import com.smapps.agenda.service.NoteService;
-import com.smapps.agenda.utils.CallBack;
+import com.smapps.agenda.utils.JourLibelleEnum;
+import com.smapps.agenda.utils.MarquageEnum;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ListeNoteActivity extends AppCompatActivity {
@@ -46,16 +47,32 @@ public class ListeNoteActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            jourId = bundle.getString("JOUR_ID");
-            this.jour = this.jourService.getJourByStrId(jourId);
+            this.jourId = bundle.getString("JOUR_ID");
+            this.jour = this.jourService.getJourByStrId(this.jourId);
+            if (this.jour == null) {
+                Date date = (Date) bundle.getSerializable("JOUR_DATE");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(date);
+
+                this.jour = new Jour();
+                this.jour.setStrId(this.jourId);
+                this.jour.setDate(date);
+                this.jour.setLibelle(JourLibelleEnum.values()[cal.get(Calendar.DAY_OF_WEEK) - 1]);
+                this.jour.setMarquage(MarquageEnum.AUCUN);
+                this.jourService.createOrUpdateJour(this.jour);
+            }
             this.init();
+
+            if (bundle.getBoolean("OPEN_NOTE_DIALOG")) {
+                this.openDialog(null);
+            }
         }
     }
 
     private void init() {
         this.noteAdapter = new NoteAdapter(this);
         List<Note> notes = new ArrayList<>();
-        if (this.jour.getNotes() != null && !this.jour.getNotes().isEmpty()) {
+        if (this.jour != null && this.jour.getNotes() != null && !this.jour.getNotes().isEmpty()) {
             notes.addAll(this.jour.getNotes());
         }
         this.noteAdapter.setListeNotes(notes);
@@ -64,13 +81,15 @@ public class ListeNoteActivity extends AppCompatActivity {
         this.noteRecycler.setLayoutManager(new LinearLayoutManager(this));
         this.noteRecycler.setHasFixedSize(true);
 
-        this.boutonAjout.setOnClickListener((view) -> {
-            NoteDialog noteDialog = new NoteDialog(this, this.jour);
-            noteDialog.setCallBack((v) -> {
-                this.jour.setNotes(this.noteService.getNoteByJourId(this.jour.getId()));
-                this.noteAdapter.setListeNotes((List<Note>) this.jour.getNotes());
-            });
-            noteDialog.show(getSupportFragmentManager(), "dialog");
+        this.boutonAjout.setOnClickListener((v) -> this.openDialog(null));
+    }
+
+    private void openDialog(Note note) {
+        NoteDialog noteDialog = new NoteDialog(this, this.jour, note);
+        noteDialog.setCallBack((v) -> {
+            this.jour.setNotes(this.noteService.getNoteByJourId(this.jour.getId()));
+            this.noteAdapter.setListeNotes((List<Note>) this.jour.getNotes());
         });
+        noteDialog.show(getSupportFragmentManager(), "dialog");
     }
 }
