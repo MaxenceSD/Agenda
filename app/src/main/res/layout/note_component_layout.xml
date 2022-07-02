@@ -8,11 +8,10 @@
 
     <TextView
         android:id="@+id/titre"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:ellipsize="end"
         android:maxLines="1"
@@ -22,8 +21,24 @@
         android:textColor="@color/gris_3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/option"
+        app:layout_constraintBottom_toTopOf="@id/ligne_separatrice"/>
+
+    <ImageView
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:src="@drawable/svg_option"
+        app:tint="@color/gris_6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/titre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ligne_separatrice"/>
+
 
     <View
         android:id="@+id/ligne_separatrice"

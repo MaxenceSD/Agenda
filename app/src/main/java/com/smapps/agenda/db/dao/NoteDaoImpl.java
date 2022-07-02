@@ -8,7 +8,6 @@ import android.util.Log;
 
 import com.j256.ormlite.dao.Dao;
 import com.smapps.agenda.db.ApplicationDatabase;
-import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.model.Note;
 
 import java.util.ArrayList;

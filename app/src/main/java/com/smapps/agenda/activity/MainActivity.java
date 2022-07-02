@@ -9,8 +9,6 @@ import androidx.core.view.GestureDetectorCompat;
 
 import com.smapps.agenda.R;
 import com.smapps.agenda.component.SemaineComponent;
-import com.smapps.agenda.service.JourService;
-import com.smapps.agenda.service.NoteService;
 import com.smapps.agenda.utils.GestureEventEnum;
 
 import java.util.Calendar;

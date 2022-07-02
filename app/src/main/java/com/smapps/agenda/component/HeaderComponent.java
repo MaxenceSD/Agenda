@@ -21,9 +21,10 @@ public class HeaderComponent extends ConstraintLayout {
 
     private ConstraintLayout constraintLayout;
 
-    private ImageView iconeLeft;
     private TextView titre;
-    private ImageView icone;
+    private ImageView iconeLeft;
+    private ImageView iconeRight;
+    private ImageView iconeRight2;
 
     public HeaderComponent(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -42,7 +43,8 @@ public class HeaderComponent extends ConstraintLayout {
         this.constraintLayout = findViewById(R.id.constraint);
         this.iconeLeft = findViewById(R.id.icone_left);
         this.titre = findViewById(R.id.titre);
-        this.icone = findViewById(R.id.icone);
+        this.iconeRight = findViewById(R.id.icone_right);
+        this.iconeRight2 = findViewById(R.id.icone_right_2);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.HeaderComponent);
 
@@ -53,10 +55,18 @@ public class HeaderComponent extends ConstraintLayout {
 
         Drawable icone = typedArray.getDrawable(R.styleable.HeaderComponent_icone);
         if (icone != null) {
-            this.icone.setVisibility(View.VISIBLE);
-            this.icone.setImageDrawable(icone);
+            this.iconeRight.setVisibility(View.VISIBLE);
+            this.iconeRight.setImageDrawable(icone);
         } else {
-            this.icone.setVisibility(View.GONE);
+            this.iconeRight.setVisibility(View.GONE);
+        }
+
+        Drawable icone2 = typedArray.getDrawable(R.styleable.HeaderComponent_icone2);
+        if (icone != null) {
+            this.iconeRight2.setVisibility(View.VISIBLE);
+            this.iconeRight2.setImageDrawable(icone2);
+        } else {
+            this.iconeRight2.setVisibility(View.GONE);
         }
 
         boolean displayIconeLeft = typedArray.getBoolean(R.styleable.HeaderComponent_afficherIconeLeft, false);
@@ -68,7 +78,7 @@ public class HeaderComponent extends ConstraintLayout {
 
         typedArray.recycle();
 
-        this.icone.setOnClickListener((v) -> {
+        this.iconeRight.setOnClickListener((v) -> {
             Toast.makeText(context, "test", Toast.LENGTH_SHORT).show();
         });
     }
@@ -80,7 +90,7 @@ public class HeaderComponent extends ConstraintLayout {
     }
 
     public void setOnIconeClickListenenr(View.OnClickListener onClickListener) {
-        this.icone.setOnClickListener(onClickListener);
+        this.iconeRight.setOnClickListener(onClickListener);
     }
 
     public void setOnIconeLeftClickListenenr(View.OnClickListener onClickListener) {

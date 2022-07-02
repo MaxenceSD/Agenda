@@ -8,11 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="selection_color">#EF9A9A</color>
+    <color name="selection_color">#A8FF0000</color>
+<!--    <color name="selection_color">#EF9A9A</color>-->
     <color name="jaune">#FFB300</color>
     <color name="rouge_1">#E53935</color>
     <color name="rouge_2">#A8E53935</color>
     <color name="rouge_3">#54E53935</color>
+    <color name="rouge_4">#1AE53935</color>
     <color name="vert_1">#157500</color>
     <color name="vert_2">#A8157500</color>
     <color name="vert_3">#54157500</color>
@@ -23,4 +25,5 @@
     <color name="gris_6">#666</color>
     <color name="gris_3">#333</color>
     <color name="blanc">#FFFFFF</color>
+    <color name="noir">#000000</color>
 </resources>

@@ -4,6 +4,7 @@
         <attr name="couleurFond" format="integer"/>
         <attr name="titre" format="string"/>
         <attr name="icone" format="integer"/>
+        <attr name="icone2" format="integer"/>
         <attr name="afficherIconeLeft" format="boolean"/>
     </declare-styleable>
 </resources>

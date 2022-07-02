@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smapps.agenda.R;
 import com.smapps.agenda.component.NoteComponent;
+import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.model.Note;
 
 import java.util.ArrayList;
@@ -30,9 +31,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     private final Context context;
     private List<Note> notes;
+    private Jour jour;
 
-    public NoteAdapter(Context context) {
+    public NoteAdapter(Context context, Jour jour) {
         this.context = context;
+        this.jour = jour;
     }
 
     @NonNull

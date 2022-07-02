@@ -70,7 +70,7 @@ public class ListeNoteActivity extends AppCompatActivity {
     }
 
     private void init() {
-        this.noteAdapter = new NoteAdapter(this);
+        this.noteAdapter = new NoteAdapter(this, this.jour);
         List<Note> notes = new ArrayList<>();
         if (this.jour != null && this.jour.getNotes() != null && !this.jour.getNotes().isEmpty()) {
             notes.addAll(this.jour.getNotes());

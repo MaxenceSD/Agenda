@@ -27,7 +27,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:titre="26 Juin 2022"
         app:couleurFond="@color/selection_color"
-        app:icone="@drawable/svg_plus"/>
+        app:icone="@drawable/svg_plus"
+        app:icone2="@drawable/svg_comment"/>
 
     <LinearLayout
         android:id="@+id/linear_semaine"

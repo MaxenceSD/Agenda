@@ -71,15 +71,26 @@ public class NoteDialog extends DialogFragment {
             String strTitre = this.titre.getText().toString();
             String strDetail = this.detail.getText().toString();
 
-            if (!TextUtils.isEmpty(strTitre)) {
-                Note note = new Note(this.jour, strTitre, strDetail);
-                this.noteService.createOrUpdateNote(note);
-                this.callBack.execute(null);
+            if (this.note != null && !TextUtils.isEmpty(strTitre)) {
+                this.note.setTitre(strTitre);
+                this.note.setDetail(strDetail);
+                this.noteService.createOrUpdateNote(this.note);
+//                this.callBack.execute(null); // TODO : MAJ après modification
                 this.dismiss();
             } else {
-                // TODO : animation titre manquant et obligatoire
+                if (!TextUtils.isEmpty(strTitre)) {
+                    Note note = new Note(this.jour, strTitre, strDetail);
+                    this.noteService.createOrUpdateNote(note);
+                    this.callBack.execute(null);
+                    this.dismiss();
+                }
             }
         });
+
+        if (this.note != null) {
+            this.titre.setText(this.note.getTitre());
+            this.detail.setText(this.note.getDetail());
+        }
     }
 
     public void setCallBack(CallBack<Void> callBack) {

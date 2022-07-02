@@ -7,7 +7,6 @@ import com.smapps.agenda.model.Jour;
 
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public class JourService {
 

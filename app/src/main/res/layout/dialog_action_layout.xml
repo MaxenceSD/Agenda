@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/background_note_dialog">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="5dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/background_edit_text"
+        android:backgroundTint="@color/gris_9"/>
+
+    <LinearLayout
+        android:id="@+id/modifier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/selector_color_gris">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/svg_edit"
+            app:tint="@color/gris_3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/gris_3"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:textSize="17sp"
+            android:text="Modifier"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/supprimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/selector_color_rouge">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/svg_bin"
+            app:tint="@color/rouge_1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/rouge_1"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:textSize="17sp"
+            android:text="Supprimer"/>
+    </LinearLayout>
+</LinearLayout>
