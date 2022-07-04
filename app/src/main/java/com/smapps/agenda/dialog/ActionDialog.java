@@ -1,5 +1,8 @@
 package com.smapps.agenda.dialog;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,6 +22,7 @@ import androidx.fragment.app.DialogFragment;
 import com.smapps.agenda.R;
 import com.smapps.agenda.model.Note;
 import com.smapps.agenda.service.NoteService;
+import com.smapps.agenda.utils.CallBack;
 
 import java.util.List;
 
@@ -29,6 +33,8 @@ public class ActionDialog extends DialogFragment {
     private Note note;
 
     private NoteService noteService;
+
+    private CallBack<Void> update;
 
     public ActionDialog(Note note) {
         this.note = note;
@@ -49,6 +55,14 @@ public class ActionDialog extends DialogFragment {
         this.init();
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (getDialog() != null && getDialog().getWindow() != null) {
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        }
+    }
+
     private void init() {
         this.noteService = new NoteService(getContext());
 
@@ -65,17 +79,20 @@ public class ActionDialog extends DialogFragment {
 
         this.modifier.setOnClickListener((v) -> {
             NoteDialog noteDialog = new NoteDialog(getContext(), null, this.note);
-            noteDialog.setCallBack((c) -> {
-//                this.jour.setNotes(this.noteService.getNoteByJourId(this.jour.getId()));
-//                this.noteAdapter.setListeNotes((List<Note>) this.jour.getNotes());
-            });
-            noteDialog.show(((AppCompatActivity)getContext()).getSupportFragmentManager(), "ACTION_DIALOG");
+            noteDialog.setCallBack((c) -> {});
+            noteDialog.setOnUpdate(update);
+            noteDialog.show(((AppCompatActivity) getContext()).getSupportFragmentManager(), "ACTION_DIALOG");
             dismiss();
         });
 
         this.supprimer.setOnClickListener((v) -> {
             this.noteService.deleteNote(this.note);
+            update.execute(null);
             dismiss();
         });
+    }
+
+    public void setOnUpdate(CallBack<Void> onUpdate) {
+        this.update = onUpdate;
     }
 }

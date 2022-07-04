@@ -34,6 +34,7 @@ public class NoteDialog extends DialogFragment {
     private CallBack<Void> callBack;
     private Jour jour;
     private Note note;
+    private CallBack<Void> update;
 
     public NoteDialog(Context context, Jour jour, Note note) {
         this.context = context;
@@ -75,13 +76,14 @@ public class NoteDialog extends DialogFragment {
                 this.note.setTitre(strTitre);
                 this.note.setDetail(strDetail);
                 this.noteService.createOrUpdateNote(this.note);
-//                this.callBack.execute(null); // TODO : MAJ après modification
+                this.update.execute(null);
                 this.dismiss();
             } else {
                 if (!TextUtils.isEmpty(strTitre)) {
                     Note note = new Note(this.jour, strTitre, strDetail);
                     this.noteService.createOrUpdateNote(note);
                     this.callBack.execute(null);
+                    this.update.execute(null);
                     this.dismiss();
                 }
             }
@@ -95,5 +97,9 @@ public class NoteDialog extends DialogFragment {
 
     public void setCallBack(CallBack<Void> callBack) {
         this.callBack = callBack;
+    }
+
+    public void setOnUpdate(CallBack<Void> onUpdate) {
+        this.update = onUpdate;
     }
 }

@@ -19,6 +19,7 @@ import com.smapps.agenda.utils.MarquageEnum;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -76,6 +77,10 @@ public class ListeNoteActivity extends AppCompatActivity {
             notes.addAll(this.jour.getNotes());
         }
         this.noteAdapter.setListeNotes(notes);
+        this.noteAdapter.setOnUpdate((n) -> {
+            Collection<Note> notesTmp = noteService.getNoteByJourId(jour.getId());
+            noteAdapter.setListeNotes((List<Note>) notesTmp);
+        });
 
         this.noteRecycler.setAdapter(noteAdapter);
         this.noteRecycler.setLayoutManager(new LinearLayoutManager(this));

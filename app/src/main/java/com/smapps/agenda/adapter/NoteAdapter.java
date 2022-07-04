@@ -12,6 +12,7 @@ import com.smapps.agenda.R;
 import com.smapps.agenda.component.NoteComponent;
 import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.model.Note;
+import com.smapps.agenda.utils.CallBack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private final Context context;
     private List<Note> notes;
     private Jour jour;
+    private CallBack<Void> update;
 
     public NoteAdapter(Context context, Jour jour) {
         this.context = context;
@@ -58,10 +60,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         Note note = this.notes.get(positionGauche);
 
         viewHolder.noteGauche.setNote(note);
+        viewHolder.noteGauche.setOnUpdate(update);
 
         if (this.notes.size() > positionDroite) {
             viewHolder.noteDroite.setVisibility(View.VISIBLE);
             viewHolder.noteDroite.setNote(this.notes.get(positionDroite));
+            viewHolder.noteDroite.setOnUpdate(update);
         } else {
             viewHolder.noteDroite.setVisibility(View.GONE);
         }
@@ -76,5 +80,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         this.notes = new ArrayList<>();
         this.notes.addAll(notes);
         notifyDataSetChanged();
+    }
+
+    public void setOnUpdate(CallBack<Void> onUpdate) {
+        this.update = onUpdate;
     }
 }

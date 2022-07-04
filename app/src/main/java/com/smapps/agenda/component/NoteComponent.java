@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.smapps.agenda.R;
 import com.smapps.agenda.dialog.ActionDialog;
 import com.smapps.agenda.model.Note;
+import com.smapps.agenda.utils.CallBack;
 
 public class NoteComponent extends LinearLayout {
 
@@ -21,6 +22,7 @@ public class NoteComponent extends LinearLayout {
     private ImageView option;
 
     private Note note;
+    private CallBack<Void> update;
 
     public NoteComponent(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -42,6 +44,7 @@ public class NoteComponent extends LinearLayout {
 
         this.option.setOnClickListener((v) -> {
             ActionDialog actionDialog = new ActionDialog(this.note);
+            actionDialog.setOnUpdate(update);
             actionDialog.show(((AppCompatActivity)getContext()).getSupportFragmentManager(), "ACTION_DIALOG");
         });
     }
@@ -50,5 +53,9 @@ public class NoteComponent extends LinearLayout {
         this.note = note;
         this.titre.setText(note.getTitre());
         this.detail.setText(note.getDetail());
+    }
+
+    public void setOnUpdate(CallBack<Void> onUpdate) {
+        this.update = onUpdate;
     }
 }
