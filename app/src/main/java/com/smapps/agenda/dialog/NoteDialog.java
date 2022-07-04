@@ -76,14 +76,18 @@ public class NoteDialog extends DialogFragment {
                 this.note.setTitre(strTitre);
                 this.note.setDetail(strDetail);
                 this.noteService.createOrUpdateNote(this.note);
-                this.update.execute(null);
+                if (this.update != null) {
+                    this.update.execute(null);
+                }
                 this.dismiss();
             } else {
                 if (!TextUtils.isEmpty(strTitre)) {
                     Note note = new Note(this.jour, strTitre, strDetail);
                     this.noteService.createOrUpdateNote(note);
                     this.callBack.execute(null);
-                    this.update.execute(null);
+                    if (this.update != null) {
+                        this.update.execute(null);
+                    }
                     this.dismiss();
                 }
             }
