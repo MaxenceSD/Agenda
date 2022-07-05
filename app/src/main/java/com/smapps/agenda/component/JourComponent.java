@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class JourComponent extends ConstraintLayout {
     private TextView libelleJour;
     private TextView libelleMois;
     private TextView numeroAnnee;
+    private TextView commentaire;
     private ImageView note;
     private View markerRouge;
     private View markerMarron;
@@ -64,6 +66,7 @@ public class JourComponent extends ConstraintLayout {
         this.libelleJour = findViewById(R.id.jour_libelle);
         this.libelleMois = findViewById(R.id.mois_libelle);
         this.numeroAnnee = findViewById(R.id.annee_libelle);
+        this.commentaire = findViewById(R.id.commentaire);
         this.note = findViewById(R.id.note);
         this.markerRouge = findViewById(R.id.marker_rouge);
         this.markerMarron = findViewById(R.id.marker_marron);
@@ -106,6 +109,12 @@ public class JourComponent extends ConstraintLayout {
         this.libelleJour.setText(jour.getLibelle().toString());
         this.libelleMois.setText(MoisLibelleEnum.values()[Integer.parseInt(jour.getStrId().substring(2, 4))].toString());
         this.numeroAnnee.setText(jour.getStrId().substring(4));
+        if (!TextUtils.isEmpty(this.jour.getCommentaire())) {
+            this.commentaire.setText(this.jour.getCommentaire());
+            this.commentaire.setVisibility(View.VISIBLE);
+        } else {
+            this.commentaire.setVisibility(View.GONE);
+        }
         this.note.setOnClickListener((v) -> {
             Intent intent = new Intent(getContext(), ListeNoteActivity.class);
             intent.putExtra("JOUR_ID", jour.getStrId());
@@ -145,12 +154,14 @@ public class JourComponent extends ConstraintLayout {
             this.numeroJour.setTextColor(getResources().getColor(R.color.rouge_1, null));
             this.libelleMois.setTextColor(getResources().getColor(R.color.rouge_2, null));
             this.numeroAnnee.setTextColor(getResources().getColor(R.color.rouge_2, null));
+            this.commentaire.setTextColor(getResources().getColor(R.color.rouge_3, null));
             this.libelleJour.setTextColor(getResources().getColor(R.color.rouge_3, null));
             this.note.setColorFilter(getResources().getColor(R.color.rouge_1, null));
         } else {
             this.numeroJour.setTextColor(getResources().getColor(R.color.gris_6, null));
             this.libelleMois.setTextColor(getResources().getColor(R.color.gris_9, null));
             this.numeroAnnee.setTextColor(getResources().getColor(R.color.gris_9, null));
+            this.commentaire.setTextColor(getResources().getColor(R.color.gris_c, null));
             this.libelleJour.setTextColor(getResources().getColor(R.color.gris_c, null));
             this.note.setColorFilter(getResources().getColor(R.color.gris_6, null));
         }
@@ -200,6 +211,7 @@ public class JourComponent extends ConstraintLayout {
         this.libelleMois.setTextColor(getResources().getColor(R.color.blanc, null));
         this.numeroAnnee.setTextColor(getResources().getColor(R.color.blanc, null));
         this.libelleJour.setTextColor(getResources().getColor(R.color.blanc, null));
+        this.commentaire.setTextColor(getResources().getColor(R.color.blanc, null));
         this.note.setColorFilter(getResources().getColor(R.color.blanc, null));
 
         this.selected = true;

@@ -14,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.smapps.agenda.R;
 import com.smapps.agenda.activity.ListeNoteActivity;
 import com.smapps.agenda.dialog.CalendrierDialog;
+import com.smapps.agenda.dialog.CommentaireDialog;
 import com.smapps.agenda.model.Jour;
 import com.smapps.agenda.service.JourService;
 import com.smapps.agenda.utils.GestureEventEnum;
@@ -83,6 +84,15 @@ public class SemaineComponent extends ConstraintLayout {
             intent.putExtra("JOUR_DATE", this.selectedComponent.getJour().getDate());
             intent.putExtra("JOUR_ID", this.selectedComponent.getJour().getStrId());
             context.startActivity(intent);
+        });
+
+        this.headerModification.setOnIconeBisClickListenenr((v) -> {
+            CommentaireDialog commentaireDialog = new CommentaireDialog(context, selectedComponent.getJour());
+            commentaireDialog.setCallback((n) -> {
+                setSemaineFromDate(jourSelected);
+                unselectAll();
+            });
+            commentaireDialog.show(((AppCompatActivity)context).getSupportFragmentManager(), "COMMENTAIRE_DIALOG");
         });
     }
 

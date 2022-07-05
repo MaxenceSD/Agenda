@@ -12,5 +12,6 @@ public class Constantes {
     public static final String JOUR_DATE = "JOUR_DATE";
     public static final String JOUR_LIBELLE = "JOUR_LIBELLE";
     public static final String JOUR_MARQUAGE = "JOUR_MARQUAGE";
+    public static final String JOUR_COMMENTAIRE = "JOUR_COMMENTAIRE";
     public static final String JOUR_NOTE = "JOUR_NOTE";
 }

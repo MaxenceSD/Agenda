@@ -93,6 +93,10 @@ public class HeaderComponent extends ConstraintLayout {
         this.iconeRight.setOnClickListener(onClickListener);
     }
 
+    public void setOnIconeBisClickListenenr(View.OnClickListener onClickListener) {
+        this.iconeRight2.setOnClickListener(onClickListener);
+    }
+
     public void setOnIconeLeftClickListenenr(View.OnClickListener onClickListener) {
         this.iconeLeft.setOnClickListener(onClickListener);
     }

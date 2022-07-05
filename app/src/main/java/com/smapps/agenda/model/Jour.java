@@ -1,5 +1,6 @@
 package com.smapps.agenda.model;
 
+import static com.smapps.agenda.db.util.Constantes.JOUR_COMMENTAIRE;
 import static com.smapps.agenda.db.util.Constantes.JOUR_DATE;
 import static com.smapps.agenda.db.util.Constantes.JOUR_ID;
 import static com.smapps.agenda.db.util.Constantes.JOUR_LIBELLE;
@@ -35,18 +36,22 @@ public class Jour {
     @DatabaseField(columnName = JOUR_MARQUAGE)
     private MarquageEnum marquage;
 
+    @DatabaseField(columnName = JOUR_COMMENTAIRE)
+    private String commentaire;
+
     @ForeignCollectionField(columnName = JOUR_NOTE, eager = true)
     private Collection<Note> notes;
 
     public Jour() {
     }
 
-    public Jour(Long id, String strId, Date date, JourLibelleEnum libelle, MarquageEnum marquage, Collection<Note> notes) {
+    public Jour(Long id, String strId, Date date, JourLibelleEnum libelle, MarquageEnum marquage, String commentaire, Collection<Note> notes) {
         this.id = id;
         this.strId = strId;
         this.date = date;
         this.libelle = libelle;
         this.marquage = marquage;
+        this.commentaire = commentaire;
         this.notes = notes;
     }
 
@@ -96,5 +101,13 @@ public class Jour {
 
     public void setNotes(Collection<Note> notes) {
         this.notes = notes;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 }
